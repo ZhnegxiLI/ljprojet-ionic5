@@ -1,0 +1,21 @@
+<ion-content class="loginBackground">
+  <div class="loginZone" >
+      <ion-list class="ion-margin-bottom" margin-bottom>
+          <ion-item style="padding-left:0px; border: 0px;">
+              <ion-label position="stacked">用户名</ion-label>
+              <ion-select cancelText="取消" okText="确定" [(ngModel)]="selectedUserId" interface="action-sheet" disabled="{{hasLogUserList}}">
+                <ion-option *ngFor="let user of userList"  [value]="user.id">{{user.id}} - {{user.username}}</ion-option>
+              </ion-select>
+          </ion-item>
+        
+          <ion-item lines="none" style="padding-top:10px; padding-left:0px ;">
+            <ion-label position="stacked">密码</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button  [disabled]="password==null || password=='' || selectedUserId==null"  block ion-button round (click)="login()" style="height: 40px;margin-top: 30px;">登录</button>
+     
+  </div>
+  <p text-center class="versionZone">2020 © Copyrights 丽锦纺织 - {{Environment}}:{{versionCode}}</p>
+      
+</ion-content>

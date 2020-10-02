@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+    <ion-title>设置</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="margin-top: 32px;">
+    <button ion-item class="AccountDetail" (click)="myInfo()">
+      <ion-avatar item-start>
+        <img src="assets/imgs/portrait.jpg">
+      </ion-avatar>
+      <h1>{{username}}</h1>
+    </button>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <span> 我的订单 </span>
+      <a class="viewAll"  float-right (click)='viewCommandWithFilterPage()'>观看所有</a>
+    </ion-list-header>
+    <ion-item button (click)='showSalesOrder()'>
+      <ion-icon name="document" item-start slot="start"></ion-icon>
+      销售订单
+    </ion-item>
+    <ion-item button ion-item (click)='showPurcharseOrder()'>
+      <ion-icon name="document" item-start slot="start"></ion-icon>
+      采购订单</ion-item>
+    <ion-item button ion-item (click)='editOrder()'>
+      <ion-icon name="create" item-start slot="start"></ion-icon>
+      编辑订单
+    </ion-item> 
+    <ion-item button ion-item (click)='valideOrder()' [hidden]='managerPermission==false && financialPermission==false'>
+      <ion-icon name="arrow-dropdown-circle" item-start slot="start"></ion-icon>
+      审核订单
+    </ion-item>   
+  </ion-list>
+
+  <ion-list>
+
+    <ion-item button ion-item (click)="setPermission()" [hidden]='adminPermission==false'>
+      <ion-icon class="iconStyle" name="alert" item-start slot="start"></ion-icon>
+      权限设置
+    </ion-item>
+
+    <ion-item ion-item button>
+      <ion-icon class="iconStyle" name="chatbubbles" item-start slot="start"></ion-icon>
+      我的信息
+    </ion-item>
+    <ion-item button ion-item (click)="newFunctionality()">
+      <ion-icon class="iconStyle" name="information-circle" item-start slot="start"></ion-icon>
+      新功能
+    </ion-item>
+    <ion-item button ion-item>
+      <ion-icon class="iconStyle" name="mail" item-start></ion-icon>
+      关于我们
+    </ion-item>
+  </ion-list>
+  <ion-list >
+    <ion-button color="danger" expand="full" full (click)="logout()">退出登录</button>
+  </ion-list>
+</ion-content>

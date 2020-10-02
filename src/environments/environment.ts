@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SERVER_API_URL: "http://localhost/LjWebApplication/",
+  MODE: 'DEV',
+  LABEL: '开发版',
+  waitingTime: 30000 // ms
 };
 
 /*
